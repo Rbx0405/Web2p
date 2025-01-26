@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DOM Example</title>
+</head>
+
+<body>
+    <h1 id="title">Welcome to DOM Manipulation</h1>
+    <p class="description">This is a demo paragraph.</p>
+    <button id="changeText">Click Me</button>
+    <script>
+        // Select elements
+            let title = document.getElementById("title"); // Select element by ID
+            let description = document.querySelector(".description"); // Select element by class
+            let button = document.getElementById("changeText");
+
+            // Change content
+            title.textContent = "Hello, DOM World!"; // Modify text
+            description.innerHTML = "<strong>This is now bold text.</strong>"; // Modify HTML
+
+            // Add an event listener
+            button.addEventListener("click", () => {
+                title.style.color = "blue"; // Change style
+                title.textContent = "You clicked the button!"; // Update text
+            });
+    </script>
+</body>
+
+</html>
