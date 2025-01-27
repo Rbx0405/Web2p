@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Example</title>
+</head>
+
+<body>
+    <h1>Geolocation Example</h1>
+    <p id="status">Getting your location...</p>
+    <p id="coordinates"></p>
+
+    <script>
+        if ("geolocation" in navigator) {
+            // Request the user's location
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    // Display the coordinates on the page
+                    document.getElementById("status").textContent = "Location found!";
+                    document.getElementById("coordinates").textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                },
+                function (error) {
+                    // Handle errors
+                    document.getElementById("status").textContent = "Error: Unable to retrieve location.";
+                }
+            );
+        } else {
+            // Geolocation is not supported
+            document.getElementById("status").textContent = "Geolocation is not supported by this browser.";
+        }
+    </script>
+</body>
+
+</html>
